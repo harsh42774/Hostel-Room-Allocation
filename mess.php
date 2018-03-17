@@ -29,7 +29,7 @@ else
 	$sql=mysqli_query($con,"UPDATE data SET mess_fees='61525' WHERE reg='$reg'");
 }
 
-header("Location: ROOM_ALLOCATION_PAYMENT.htm");
+header("Location: payment.htm");
 
 exit();
 

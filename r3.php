@@ -1,18 +1,15 @@
 <?php
 require('sql_connect.php');
 
-$reg=$_COOKIE['reg'];
-$r1=$_POST['s1'];
-$r2=$_POST['s2'];
+$reg=strtoupper($_COOKIE['reg']);
+$r1=strtoupper($_POST['s1']);
+$r2=strtoupper($_POST['s2']);
 
-if($r1==$reg)
+if($r1==$reg || $r1==$r2 || $r2==$reg)
 {
-	echo("<h1><font color='red'>Enter valid registration Number</font></h1><h3><a href='ROOM_ALLOCATION_ROOMMATE_SELECTION_3.htm'>Back</a></h3>");
-	exit();
-}
-else if($r2==$reg)
-{
-	echo("<h1><font color='red'>Enter valid registration Number</font></h1><h3><a href='ROOM_ALLOCATION_ROOMMATE_SELECTION_3.htm'>Back</a></h3>");
+	echo("<script>alert('Enter valid registration number');
+	location.href='3bed.htm';
+	</script>");
 	exit();
 }
 else
@@ -21,6 +18,6 @@ else
 	$sql=mysqli_query($con,"UPDATE data SET r2='$r2' WHERE reg='$reg'");
 }
 
-header("Location: ROOM_ALLOCATION_MESS_SELECTION.htm");
+header("Location: mess.htm");
 
 ?>

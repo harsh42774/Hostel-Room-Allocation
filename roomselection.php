@@ -17,7 +17,7 @@ if($room=='2')
 	{
 		$sql=mysqli_query($con,"UPDATE data SET room_fees='67569' WHERE reg='$reg'");
 	}
-	header("Location: ROOM_ALLOCATION_ROOMMATE_SELECTION_2.htm");
+	header("Location: 2bed.htm");
 	exit();
 }
 else if($room=='3')
@@ -30,7 +30,7 @@ else if($room=='3')
 	{
 		$sql=mysqli_query($con,"UPDATE data SET room_fees='62498' WHERE reg='$reg'");
 	}
-	header("Location: ROOM_ALLOCATION_ROOMMATE_SELECTION_3.htm");	
+	header("Location: 3bed.htm");	
 	exit();
 }
 else
@@ -43,7 +43,7 @@ else
 	{
 		$sql=mysqli_query($con,"UPDATE data SET room_fees='57064' WHERE reg='$reg'");
 	}
-	header("Location: ROOM_ALLOCATION_ROOMMATE_SELECTION_4.htm");	
+	header("Location: 4bed.htm");	
 	exit();
 }
 

@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>Mess Selection</title>
+
+<style type="text/css">
+table.sample {
+	border-width: 3px;
+	border-spacing: 2px;
+	border-style: inset;
+	border-color: blue;
+	border-collapse: collapse;
+	background-color: rgb(204, 204, 255);
+}
+table.sample th {
+	border-width: thin;
+	padding: 1px;
+	border-style: dotted;
+	border-color: blue;
+	background-color: rgb(204, 204, 255);
+	-moz-border-radius: ;
+}
+table.sample td {
+	border-width: thin;
+	padding: 1px;
+	border-style: dotted;
+	border-color: blue;
+	background-color: rgb(204, 204, 255);
+	-moz-border-radius: ;
+}
+table.sample1 {
+	border-width: 3px;
+	border-spacing: 5px;
+	border-style: inset;
+	border-color: blue;
+	border-collapse: collapse;
+	background-color: rgb(204, 204, 255);
+}
+table.sample1 th {
+	border-width: 0px;
+	padding: 3px;
+	border-style: none;
+	border-color: blue;
+	background-color: rgb(204, 204, 255);
+	-moz-border-radius: ;
+}
+table.sample1 td {
+	border-width: 0px;
+	padding: 3px;
+	border-style: none;
+	border-color: blue;
+	background-color: rgb(204, 204, 255);
+	-moz-border-radius: ;
+}
+section.flat button {
+  color: #051b73;
+  background-color: #b3c2fc;
+  text-shadow: 0px 0px #417cb8;
+  border: outset;
+}
+
+section.flat button:hover,
+section.flat button.hover {
+  color: #fff;
+  background-color: #346392;
+  text-shadow: 0px 0px #27496d;
+}
+
+section.flat button:active,
+section.flat button.active {
+  color: #fff;
+  background-color: #27496d;
+  text-shadow: 0px 0px #193047;
+}</style>
+<script type="text/javascript">
+	window.history.forward();
+	function noBack() { window.history.forward(); }
+</script>
+</head>
+<body onload="noBack();" 
+	onpageshow="if (event.persisted) noBack();" onunload="">
+<form id="f1" action="mess.php" method="post">
+	<p align="center"><font size="6" face="Times New Roman"><u><b>Mess Selection</b></u></font></p><br><br>
+	<table align="center" class="sample1">
+	<col width="200">
+	<tr><th><font size="4"><u>Select the type of mess</u></font></th></tr>
+	<tr><td></td></tr>
+	<tr><td></td></tr>
+	<tr><td></td></tr>
+	<tr><td><input type="radio" name="mess" value="special" checked>Special</td></tr>
+	<tr><td><input type="radio" name="mess" value="south veg">South Veg.</td></tr>
+	<tr><td><input type="radio" name="mess" value="south non-veg">South Non-Veg.</td></tr>
+	<tr><td><input type="radio" name="mess" value="north veg">North Veg.</td></tr>
+	<tr><td><input type="radio" name="mess" value="north non-veg">North Non-Veg.</td></tr>
+	</table>
+	<section class="flat">
+		<p align="center"><input type="submit" name="submit" value="SUBMIT">
+	</section>
+	<h1><font color="red" >NOTE: Once You hit the submit button your room, roommates and mess preferences will be locked and you won't be able to change them later</font></h1>
+	<br><br><br><br>
+	<p align="center"><font size="4.5" face="Times New Roman"><u><b>Mess Charges</b></u></font></p>
+	<table align="center" class="sample">
+		<col width="150">
+		<col width="150">
+		<tr><th>Type</th><th>Amount (Rs)</th></tr>
+		<tr align="center"><td>Special</td><td>67,850</td></tr>
+		<tr align="center"><td>South Veg.</td><td>55,200</td></tr>
+		<tr align="center"><td>South Non-Veg.</td><td>61,525</td></tr>
+		<tr align="center"><td>North Veg.</td><td>55,200</td></tr>
+		<tr align="center"><td>North Non-Veg.</td><td>61,525</td></tr>
+	</table>
+</form>
+</body>
+</html>

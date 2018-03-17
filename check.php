@@ -8,14 +8,14 @@ while($row=mysqli_fetch_array($sql1))
 {
 	if($row['status']==0)
 	{
-		header('Location: ROOM_ALLOCATION_ROOM_SELECTION.htm');
+		header('Location: roomselection.htm');
 		exit();
 	}
 	else
 	{
 		echo("<script language='JavaScript'>
 		window.alert('You have already registered')
-		window.location.href='ROOM_ALLOCATION_MAIN_PAGE.html'
+		window.location.href='main.html'
 		</script>");
 		exit();			
 	}

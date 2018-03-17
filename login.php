@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
 	{
 		echo("<script language='JavaScript'>
 			window.alert('Please enter Registration Number')
-			window.location.href='ROOM_ALLOCATION_LOGIN.html'
+			window.location.href='login.html'
 			</script>");
 		exit();
 	}
@@ -17,7 +17,7 @@ if(isset($_POST['submit']))
 	{
 		echo("<script language='JavaScript'>
 			window.alert('Please enter Password')
-			window.location.href='ROOM_ALLOCATION_LOGIN.html'
+			window.location.href='login.html'
 			</script>");
 		exit();
 	}
@@ -25,14 +25,14 @@ if(isset($_POST['submit']))
 	if(mysqli_num_rows($sql)>0)
 	{
 		setcookie('reg',$reg,time() + (86400),"/");
-		header('Location: ROOM_ALLOCATION_HOMEPAGE.html');
+		header('Location: home.html');
 		exit();
 	}
 	else
 	{
 		echo ("<script language='JavaScript'>
 			window.alert('Wrong Registration Number or Password. Please re-enter.')
-			window.location.href='ROOM_ALLOCATION_LOGIN.html'
+			window.location.href='login.html'
 			</script>");
 		exit();
 	}
