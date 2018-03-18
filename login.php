@@ -29,7 +29,7 @@ if(isset($_POST['submit']))
 		exit();
 	}
 	else
-	{
+	{ 
 		echo ("<script language='JavaScript'>
 			window.alert('Wrong Registration Number or Password. Please re-enter.')
 			window.location.href='login.html'

@@ -1,6 +1,5 @@
 <?php
 require('sql_connect.php');
-
 $reg=$_COOKIE['reg'];
 $sql1=mysqli_query($con,"SELECT * FROM data WHERE reg='$reg'");
 
