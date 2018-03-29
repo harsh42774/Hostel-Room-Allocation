@@ -1,7 +1,6 @@
 <?php
 require('sql_connect.php');
 
-$room=$_POST['bed'];
 $reg=$_COOKIE['reg'];
 $type=$_POST['type'];
 

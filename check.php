@@ -8,7 +8,7 @@ while($row1=mysqli_fetch_array($sql1))
 {
 	if($row1['alloted']==0)
 	{
-		header('Location: roomselection.htm');
+		header('Location: roomselection1.htm');
 		exit();
 	}
 	else

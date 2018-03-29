@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>Room Selection</title>
+    </head>
+    <style type="text/css">
+        table.sample1 {
+            border-width: 3px;
+            border-spacing: 5px;
+            border-style: inset;
+            border-color: blue;
+            border-collapse: collapse;
+            background-color: rgb(204, 204, 255);
+        }
+    
+        table.sample1 th {
+            border-width: 3px;
+            padding: 3px;
+            border-style: inset;
+            border-color: blue;
+            background-color: rgb(204, 204, 255);
+        }
+    
+        table.sample1 td {
+            text-align: center;
+            border-width: 3px;
+            padding: 3px;
+            border-style: inset;
+            border-color: blue;
+            background-color: rgb(204, 204, 255);
+        }
+    
+        section.flat button {
+            color: #051b73;
+            background-color: #b3c2fc;
+            text-shadow: 0px 0px #417cb8;
+            border: outset;
+        }
+    
+        section.flat input:hover,
+        section.flat input.hover {
+            color: #fff;
+            background-color: #346392;
+            text-shadow: 0px 0px #27496d;
+        }
+    
+        section.flat input:active,
+        section.flat input.active {
+            color: #fff;
+            background-color: #27496d;
+            text-shadow: 0px 0px #193047;
+        }
+    </style>
+
+    <body>
+        <p align="center">
+            <font size="6" face="Times New Roman">
+                <u>
+                    <b>Room Selection</b>
+                </u>
+            </font>
+        </p>
+        <br>
+        <br>
+        <form name="f1" method="post" action="roomselection1.php">
+            <table align="center" class="sample1">
+                <col width="200">
+                <tr><th colspan="3">
+                    <u>Select the type of room</u>
+                </th></tr>
+                <tr>
+                    <td>Particulars</td>
+                    <td>A/C</td>
+                    <td>Non-A/C</td>
+                </tr>
+                <tr>
+                    <td>2-Bedded</td>
+                    <td><input type="radio" name="type" value="2ac">79300</td>
+                    <td><input type="radio" name="type" value="2nonac">42000</td>
+                </tr>
+                <tr>
+                    <td>3-Bedded</td>
+                    <td><input type="radio" name="type" value="3ac">75100</td>
+                    <td><input type="radio" name="type" value="3nonac">37300</td>
+                </tr>
+                <tr>
+                    <td>4-Bedded</td>
+                    <td><input type="radio" name="type" value="4ac">69800</td>
+                    <td><input type="radio" name="type" value="4nonac">32200</td>
+                </tr>
+                <tr>
+                    <td>6-Bedded</td>
+                    <td><input type="radio" name="type" value="6ac">61500</td>
+                    <td><input type="radio" name="type" value="6nonac">28300</td>
+                </tr>
+            </table>
+            <section class="flat">
+                <p align="center">
+                    <input type="submit" name="submit" value="Submit">
+                </p>
+            </section>
+        </form>
+    </body>
+</html>
