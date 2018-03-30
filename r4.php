@@ -72,6 +72,6 @@ else
 	$sql=mysqli_query($con,"UPDATE data SET r3='$r3' WHERE reg='$reg'");
 }
 
-header("Location: mess.htm");
+header("Location: room.php");
 
 ?>

@@ -14,6 +14,7 @@ echo "<html><head><script type='text/javascript'>
 
 while($row=mysqli_fetch_array($sql))
 {
+	$room_no=$row['room_no'];
 	echo "<table><tr><td>Hostel Fees</td><td>".$row['room_fees']."</td></tr><tr><td>Mess Fees</td><td>".$row['mess_fees']."</td></tr></table></body></html>";
 }
 
@@ -24,5 +25,7 @@ while($row=mysqli_fetch_array($sql))
 }
 $curr_rank++;
 $sql=mysqli_query($con,"UPDATE extras SET rank='$curr_rank'");
+
+$sql=mysqli_query($con,"UPDATE rooms SET alloted='1' WHERE room='$room_no'");
 
 ?>
