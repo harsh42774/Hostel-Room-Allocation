@@ -2,7 +2,7 @@
 
 require('sql_connect.php');
 
-$reg=strtoupper($_COOKIE['reg']);
+$reg=$_COOKIE['reg'];
 $mess=$_POST['mess'];
 $room=$_COOKIE['room'];
 
@@ -15,11 +15,11 @@ while($row=mysqli_fetch_array($sql))
 	$room=$row['room'];
 	$type=$row['type'];
 	$room_fees=$row['room_fees'];
-    $r1=strtoupper($row['r1']);
-    $r2=strtoupper($row['r2']);
-    $r3=strtoupper($row['r3']);
-    $r4=strtoupper($row['r4']);
-    $r5=strtoupper($row['r5']);
+    $r1=$row['r1'];
+    $r2=$row['r2'];
+    $r3=$row['r3'];
+    $r4=$row['r4'];
+    $r5=$row['r5'];
 }
 
 if(!empty($r1))

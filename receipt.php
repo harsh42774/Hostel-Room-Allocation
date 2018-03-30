@@ -17,12 +17,4 @@ while($row=mysqli_fetch_array($sql))
 	echo "<table><tr><td>Hostel Fees</td><td>".$row['room_fees']."</td></tr><tr><td>Mess Fees</td><td>".$row['mess_fees']."</td></tr></table></body></html>";
 }
 
-$sql=mysqli_query($con,"SELECT * FROM extras");
-while($row=mysqli_fetch_array($sql))
-{
-	$curr_rank=$row['rank'];
-}
-$curr_rank++;
-$sql=mysqli_query($con,"UPDATE extras SET rank='$curr_rank'");
-
 ?>

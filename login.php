@@ -22,31 +22,11 @@ if(isset($_POST['submit']))
 		exit();
 	}
 	$sql=mysqli_query($con,"SELECT * FROM login WHERE reg='$reg' AND pass='$pass'");
-	while($row=mysqli_fetch_array($sql))
-	{
-		$rank=$row['rank'];
-	}
 	if(mysqli_num_rows($sql)>0)
 	{
-		$sql1=mysqli_query($con,"SELECT * FROM extras");
-		while($row=mysqli_fetch_array($sql1))
-		{
-			$curr_rank=$row['rank'];
-		}
-		if($curr_rank==$rank)
-		{
-			setcookie('reg',$reg,time() + (86400),"/");
-			header('Location: home.html');
-			exit();
-		}
-		else
-		{
-			echo ("<script language='JavaScript'>
-			window.alert('Currently, rank $curr_rank is going on')
-			window.location.href='login.html'
-			</script>");
-			exit();	
-		}
+		setcookie('reg',$reg,time() + (86400),"/");
+		header('Location: home.html');
+		exit();
 	}
 	else
 	{ 
