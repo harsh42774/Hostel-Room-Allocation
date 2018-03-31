@@ -3,74 +3,73 @@
 <title>Mess Selection</title>
 
 <style type="text/css">
-table.sample {
-	border-width: 3px;
-	border-spacing: 2px;
-	border-style: inset;
-	border-color: blue;
-	border-collapse: collapse;
-	background-color: rgb(204, 204, 255);
-}
-table.sample th {
-	border-width: thin;
-	padding: 1px;
-	border-style: dotted;
-	border-color: blue;
-	background-color: rgb(204, 204, 255);
-	-moz-border-radius: ;
-}
-table.sample td {
-	border-width: thin;
-	padding: 1px;
-	border-style: dotted;
-	border-color: blue;
-	background-color: rgb(204, 204, 255);
-	-moz-border-radius: ;
-}
-table.sample1 {
-	border-width: 3px;
-	border-spacing: 5px;
-	border-style: inset;
-	border-color: blue;
-	border-collapse: collapse;
-	background-color: rgb(204, 204, 255);
-}
-table.sample1 th {
-	border-width: 0px;
-	padding: 3px;
-	border-style: none;
-	border-color: blue;
-	background-color: rgb(204, 204, 255);
-	-moz-border-radius: ;
-}
-table.sample1 td {
-	border-width: 0px;
-	padding: 3px;
-	border-style: none;
-	border-color: blue;
-	background-color: rgb(204, 204, 255);
-	-moz-border-radius: ;
-}
-section.flat button {
-  color: #051b73;
-  background-color: #b3c2fc;
-  text-shadow: 0px 0px #417cb8;
-  border: outset;
+table
+{
+	border:2px solid blue;
+	background-color:rgb(204, 204, 255);
 }
 
-section.flat button:hover,
-section.flat button.hover {
-  color: #fff;
-  background-color: #346392;
-  text-shadow: 0px 0px #27496d;
+body
+{
+	background-image:url("background.jpg");
 }
 
-section.flat button:active,
-section.flat button.active {
-  color: #fff;
-  background-color: #27496d;
-  text-shadow: 0px 0px #193047;
-}</style>
+input[type=submit] {
+  border-radius: 5px;
+  background-color: rgb(200, 200, 255);
+  border-color: blue;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font:Times New Roman;
+}
+
+input[type=submit] span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+input[type=submit] span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+input[type=submit]:hover span {
+  padding-right: 25px;
+}
+
+input[type=submit]:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+	.footer 
+	{
+	  position: absolute;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  padding: 1rem;
+	  background-color:rgb(200, 200, 255);
+	  text-align: center;
+	  color: black;
+	  font-size:20px;
+		border: 1px solid blue;
+		border-radius:10px;
+	}
+
+</style>
 <script type="text/javascript">
 	window.history.forward();
 	function noBack() { window.history.forward(); }
@@ -82,21 +81,21 @@ section.flat button.active {
 	<p align="center"><font size="6" face="Times New Roman"><u><b>Mess Selection</b></u></font></p><br><br>
 	<table align="center" class="sample1">
 	<col width="200">
-	<tr><th><font size="4"><u>Select the type of mess</u></font></th></tr>
+	<tr><th colspan=2><font size="4" align="center">Select the type of mess</font></th></tr>
 	<tr><td></td></tr>
 	<tr><td></td></tr>
 	<tr><td></td></tr>
-	<tr><th>Type</th><th>Fees(Rs)</th></tr>
+	<tr><th>Type</th><th>Fees (INR)</th></tr>
 	<tr><td><input type="radio" name="mess" value="special" checked>Special</td><td>67900</td></tr>
 	<tr><td><input type="radio" name="mess" value="south veg">South Veg.</td><td>53300</td></tr>
 	<tr><td><input type="radio" name="mess" value="south non-veg">South Non-Veg.</td><td>59300</td></tr>
 	<tr><td><input type="radio" name="mess" value="north veg">North Veg.</td><td>53300</td></tr>
 	<tr><td><input type="radio" name="mess" value="north non-veg">North Non-Veg.</td><td>59300</td></tr>
 	</table>
-	<section class="flat">
-		<p align="center"><input type="submit" name="submit" value="SUBMIT">
-	</section>
-	<h1><font color="red" >NOTE: Once You hit the submit button your room, roommates and mess preferences will be locked and you won't be able to change them later</font></h1>
+		<p align="center"><span><input type="submit" name="submit" value="SUBMIT"></span></p>
+	
+	<div class = "footer"><font color="red"><b>NOTE:</b></font> Once You hit the submit button your room, roommates and mess preferences will be locked and you won't be able to change them later</div>
+	
 </form>
 </body>
 </html>

@@ -3,6 +3,12 @@
 <title>Room Selection</title>
 
 <style type="text/css">
+
+body
+{
+	background-image:url("background.jpg");
+}
+
 table.sample {
 	border-width: 3px;
 	border-spacing: 2px;
@@ -47,25 +53,44 @@ table.sample1 td {
 	border-color: blue;
 	background-color: rgb(204, 204, 255);
 }
-section.flat button {
-  color: #051b73;
-  background-color: #b3c2fc;
-  text-shadow: 0px 0px #417cb8;
-  border: outset;
+input[type=submit] {
+  border-radius: 5px;
+  background-color: rgb(200, 200, 255);
+  border-color: blue;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font:Times New Roman;
 }
 
-section.flat input:hover,
-section.flat input.hover {
-  color: #fff;
-  background-color: #346392;
-  text-shadow: 0px 0px #27496d;
+input[type=submit] span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 }
 
-section.flat input:active,
-section.flat input.active {
-  color: #fff;
-  background-color: #27496d;
-  text-shadow: 0px 0px #193047;
+input[type=submit] span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+input[type=submit]:hover span {
+  padding-right: 25px;
+}
+
+input[type=submit]:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 </style>
 </head>
@@ -97,7 +122,7 @@ section.flat input.active {
 <tr><td><input type="radio" name="bed" value="6">6-bedded</td></tr>
 </table>
 <section class="flat">
-	<p align="center"><input type="submit" name="submit" value="Submit"></p>
+	<p align="center"><input type="submit" name="submit" value="SUBMIT"></p>
 </section>
 </form>
 <br><br><br>
@@ -110,11 +135,11 @@ section.flat input.active {
 	<col width="150">
 	<col width="100">
 	<col width="150">
-	<tr align="center"><th>Particulars</th><th colspan="2">2 Bedded Room (Rs)</th><th colspan="2">3 Bedded Room (Rs)</th><th colspan="2">4 Bedded Room (Rs)</th></tr>
+	<tr align="center"><th>Particulars</th><th colspan="2">2 Bedded Room</th><th colspan="2">3 Bedded Room</th><th colspan="2">4 Bedded Room</th></tr>
 	<tr align="center"><th></th><th>A/C</th><th>Non A/C</th><th>A/C</th><th>Non A/C</th><th>A/C</th><th>Non A/C</th></tr>
-	<tr align="center"><th>Hostel Fees</th><td>97,405</td><td>57,569</td><td>92,978</td><td>52,498</td><td>87,285</td><td>47,064</td></tr>
-	<tr align="center"><th>Caution Deposit (Refundable)</th><td colspan="6">10,000</td></tr>
-	<tr align="center"><th>Total Amount (Rs)</th><td>1,07,405</td><td>67,569</td><td>1,02,978</td><td>62,498</td><td>97,285</td><td>57,064</td></tr>
+	<tr align="center"><th>Hostel Fees (INR)</th><td>97,405</td><td>57,569</td><td>92,978</td><td>52,498</td><td>87,285</td><td>47,064</td></tr>
+	<tr align="center"><th>Caution Deposit (INR)</th><td colspan="6">10,000</td></tr>
+	<tr align="center"><th>Total Amount (INR)</th><td>1,07,405</td><td>67,569</td><td>1,02,978</td><td>62,498</td><td>97,285</td><td>57,064</td></tr>
 </table>
 
 </body>
