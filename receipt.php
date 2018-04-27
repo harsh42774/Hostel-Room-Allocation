@@ -79,9 +79,16 @@ while($row=mysqli_fetch_array($sql))
 {
 	$curr_rank=$row['rank'];
 }
-$curr_rank++;
-$sql=mysqli_query($con,"UPDATE extras SET rank='$curr_rank'");
-
-$sql=mysqli_query($con,"UPDATE rooms SET alloted='1' WHERE room='$room_no'");
+$sql=mysqli_query($con,"SELECT rank FROM login WHERE reg='$reg'");
+while($row=mysqli_fetch_array($sql))
+{
+	$r=$row['rank'];
+}
+if($curr_rank==$r)
+{
+	$curr_rank++;
+	$sql=mysqli_query($con,"UPDATE extras SET rank='$curr_rank'");
+	$sql=mysqli_query($con,"UPDATE rooms SET alloted='1' WHERE room='$room_no'");
+}
 
 ?>
