@@ -71,6 +71,7 @@ echo "<html><head><script type='text/javascript'>
 while($row=mysqli_fetch_array($sql))
 {
 	$room_no=$row['room_no'];
+	$block=$row['block'];
 	echo "<table cellspacing='10'><tr><td>Hostel fees(INR):</td><td>".$row['room_fees']."</td></tr><tr><td>Mess fees(INR):</td><td>".$row['mess_fees']."</td></tr></table></center></div></body></html>";
 }
 
@@ -88,7 +89,7 @@ if($curr_rank==$r)
 {
 	$curr_rank++;
 	$sql=mysqli_query($con,"UPDATE extras SET rank='$curr_rank'");
-	$sql=mysqli_query($con,"UPDATE rooms SET alloted='1' WHERE room='$room_no'");
+	$sql=mysqli_query($con,"UPDATE rooms SET alloted='1' WHERE room='$room_no' AND block='$block'");
 }
 
 ?>

@@ -75,7 +75,13 @@ echo "<html>
                 <h3>Select Room Number</h3>
                 <select name='room_no'>";
 
-$sql=mysqli_query($con,"SELECT * FROM rooms WHERE alloted='0' AND bed='$bed' AND type='$type'");
+$sql=mysqli_query($con,"SELECT * from data WHERE reg='$reg'");
+while($row=mysqli_fetch_array($sql))
+{
+    $block=$row['block'];
+}
+
+$sql=mysqli_query($con,"SELECT * FROM rooms WHERE alloted='0' AND bed='$bed' AND type='$type' AND block='$block'");
 while($row=mysqli_fetch_array($sql))
 {
     $room_no=$row['room'];

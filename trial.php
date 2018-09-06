@@ -1,5 +1,12 @@
 <?php
+require('sql_connect.php');
+$reg=$_COOKIE['reg'];
 
-echo "<html><head><title>Trial</title></head><body><form method='post' action='trial1.php'><input type='submit' name='submit' value='Click Here!'></form></body></html>";
+$sql=mysqli_query($con,"SELECT * from data WHERE reg='$reg'");
+while($row=mysqli_fetch_array($sql))
+{
+    $block=$row['block'];
+}
 
+print $block;
 ?>
