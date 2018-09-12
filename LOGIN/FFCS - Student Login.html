@@ -1,0 +1,203 @@
+
+<!-- saved from url=(0052)https://academicscc.vit.ac.in/student/stud_login.asp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>FFCS - Student Login</title>
+
+
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+<noscript>&lt;meta http-equiv="refresh" content="0; url=javascript_error.asp"&gt;</noscript>
+<link href="./FFCS - Student Login_files/style.css" rel="stylesheet" type="text/css">
+
+<script language="javascript">
+
+function call_msg()
+{
+	var msg = document.stud_login.message.value;
+	
+	if (msg != "")
+	{
+		alert(msg);
+	}
+}
+
+function checknull()
+{
+	var d = document.stud_login;
+	
+	if ((d.regno.value.length<1) || (d.regno.value.charAt(0)==" ")) 
+	{
+		alert("Enter Register No.");
+		d.regno.select();
+		d.regno.focus();
+		return false;
+	}
+	
+	if ((d.passwd.value.length<1) || (d.passwd.value.charAt(0)==" ")) 
+	{
+		alert("Enter Password.");
+		d.passwd.select();
+		d.passwd.focus();
+		return false;
+	}
+	
+	if ((d.vrfcd.value.length<6) || (d.vrfcd.value.charAt(0)==" ")) 
+	{
+		alert("Enter Verification Code of 6 characters exactly as shown.");
+		d.vrfcd.select();
+		d.vrfcd.focus();
+		return false;
+	}
+	
+	return true;
+}
+
+function call_reset()
+{
+	self.location = "stud_login.asp";
+}
+
+function call_fgpwd()
+{
+	self.location = "forgot_pswd.asp";
+}
+
+</script>
+
+<script type="text/javascript" language="javascript">
+function RefreshImage(valImageId)
+{
+	var objImage = document.getElementById(valImageId)
+    if (objImage == undefined)
+    {
+    	return;
+    }
+    var now = new Date();
+    objImage.src = objImage.src.split('?')[0] + '?x=' + now.toUTCString();
+}
+</script>
+
+<script>var __tcjsch = !0;</script></head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="./FFCS - Student Login_files/background2.jpg" onload="call_msg()">
+<table width="100%" height="15%" border="0" align="center" cellpadding="0" cellspacing="0" background="./FFCS - Student Login_files/banner_bg3.jpg">
+  <tbody><tr>
+    <td width="25%" align="left">&nbsp;
+    	<img src="./FFCS - Student Login_files/vit_logo6.jpg" width="70%" height="70%">
+    </td>
+    <td align="center">
+    	<br>
+    	<font size="5" color="#FFFFFF" face="Comic Sans MS">
+    	<b>DIRECTORATE OF ACADEMICS</b><br>
+    	Student Login(Chennai Campus)
+     	</font>
+    </td>
+  </tr>
+</tbody></table>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="3%" bgcolor="#000000" align="center">
+  	<tbody><tr><td align="left" width="41%">
+	  	<font face="verdana" color="#FFFFFF" size="2">
+	  	&nbsp;
+	  	
+	  	</font>
+  	</td>
+  	<td align="center" width="23%">
+  		
+  	</td>
+  	<td align="right" width="36%">
+  		<font face="verdana" color="#FFFFFF" size="2">Wednesday, August 16, 2017</font>&nbsp;
+  	</td>
+</tr></tbody></table>
+
+<table width="100%" height="77%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+	<td valign="top" width="100%" bgcolor="#FFFFFF" align="center">
+		<br><br><br><br>
+		
+		
+		
+		<form name="stud_login" action="https://academicscc.vit.ac.in/student/stud_login_submit.asp" method="post">
+		
+		<input type="hidden" name="message" value="">
+		
+		<table cellpadding="2" cellspacing="0" border="2" bordercolor="#CC9900" width="434">
+			<tbody><tr>
+				<td bgcolor="#E1ECF2" align="center" width="424" height="100">
+								
+				<table cellspacing="0" cellpadding="4" align="center" border="1" width="428" height="100" style="border-collapse: collapse;" bordercolor="#FFFFFF">
+				
+				<tbody><tr bgcolor="#5A768D" height="30" align="center">
+					<td colspan="2">
+						&nbsp;
+					</td>
+				</tr>
+				
+				<tr>
+					<td bgcolor="#5A768D" width="117" height="33">
+						<font color="#FFFFFF"><b>Register No.</b></font>
+					</td>
+					<td height="33" width="292">
+						<input type="text" name="regno" class="textbox2" size="20" maxlength="9" tabindex="1">
+					</td>
+				</tr>
+				
+				<tr>
+					<td bgcolor="#5A768D" width="117" height="36">
+						<font color="#FFFFFF"><b>Password</b></font>
+					</td>
+					<td height="36" width="292">
+						<input type="password" name="passwd" class="textbox" size="30" maxlength="25" tabindex="1">
+					</td>
+				</tr>
+								
+				<tr>
+					<td bgcolor="#5A768D" height="36" width="117" rowspan="2" valign="top">
+						<font color="#FFFFFF"><b>Verification Code</b></font>
+					</td>
+					<td height="36" width="292" align="center" bgcolor="#FFFFE8">
+						<img src="./FFCS - Student Login_files/captcha.asp.download" id="imgCaptcha" oncontextmenu="return false;" ondrag="return false;" onmousedown="return false;">
+					</td>
+				</tr>
+				
+				<tr>
+					<td height="36" width="292">
+						<input type="text" name="vrfcd" class="textbox" size="10" maxlength="6" tabindex="1">&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="javascript:void(0);" onclick="RefreshImage(&#39;imgCaptcha&#39;);"><font color="blue">Change Verification Code</font></a>
+					</td>
+				</tr>
+				
+				<tr bgcolor="#5A768D" height="40" align="center">
+					<td colspan="2">
+						
+						<input type="submit" value="Login" class="submit3" onclick="return checknull()" tabindex="1">
+						&nbsp;&nbsp;
+						<input type="button" value="Reset" class="submit3" onclick="call_reset()" tabindex="1">
+						&nbsp;&nbsp;
+						<input type="button" value="Forgot Password ?" class="submit3" onclick="call_fgpwd()" tabindex="1">
+						
+					</td>
+				</tr>
+				
+				</tbody></table>
+								
+				</td>
+			</tr>
+		</tbody></table>
+		
+		</form>
+		
+	<br><br>				
+	</td>
+  </tr>
+</tbody></table>
+
+<table width="100%" height="5%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td align="center" background="./FFCS - Student Login_files/banner_bg3.jpg" class="white-text">
+    © &nbsp; VIT University, Vellore.
+    </td>
+  </tr>
+</tbody></table>
+
+
+</body></html>
