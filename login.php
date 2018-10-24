@@ -1,6 +1,6 @@
 <?php
 require('sql_connect.php');
-
+date_default_timezone_set('Asia/Kolkata');
 if(isset($_POST['submit']))
 {
 	$reg=mysqli_escape_string($con,$_POST['reg']);
@@ -21,28 +21,41 @@ if(isset($_POST['submit']))
 			</script>");
 		exit();
 	}
-	$sql=mysqli_query($con,"SELECT * FROM login WHERE reg='$reg' AND pass='$pass'");
+	$sql=mysqli_query($con,"SELECT * FROM login WHERE reg='$reg'");
 	while($row=mysqli_fetch_array($sql))
 	{
-		$rank=$row['rank'];
+		$start_time = $row['start'];
+		$end_time = $row['end'];
 	}
+	$start = $start_time;
+	$end = $end_time;
+	$start_time = strtotime($start_time);
+	$end_time = strtotime($end_time);
 	if(mysqli_num_rows($sql)>0)
 	{
-		$sql1=mysqli_query($con,"SELECT * FROM extras");
-		while($row=mysqli_fetch_array($sql1))
+		$current_time = date('Y-m-d H:i:s');
+		$current_time = strtotime($current_time);
+		if($start_time <= $current_time)
 		{
-			$curr_rank=$row['rank'];
-		}
-		if($curr_rank==$rank)
-		{
-			setcookie('reg',$reg,time() + (86400),"/");
-			header('Location: home.html');
-			exit();
+			if($current_time<=$end_time)
+			{
+				setcookie('reg',$reg,time() + (86400),"/");
+				header('Location: home.html');
+				exit();
+			}
+			else
+			{
+				echo ("<script language='JavaScript'>
+				window.alert('Your registration period is over')
+				window.location.href='login.html'
+				</script>");
+				exit();
+			}
 		}
 		else
 		{
 			echo ("<script language='JavaScript'>
-			window.alert('Currently, rank $curr_rank is going on')
+			window.alert('Your registeration is from $start to $end')
 			window.location.href='login.html'
 			</script>");
 			exit();	
