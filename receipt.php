@@ -85,11 +85,7 @@ while($row=mysqli_fetch_array($sql))
 {
 	$r=$row['rank'];
 }
-if($curr_rank==$r)
-{
-	$curr_rank++;
-	$sql=mysqli_query($con,"UPDATE extras SET rank='$curr_rank'");
-	$sql=mysqli_query($con,"UPDATE rooms SET alloted='1' WHERE room='$room_no' AND block='$block'");
-}
+$sql=mysqli_query($con,"UPDATE extras SET rank='$curr_rank'");
+$sql=mysqli_query($con,"UPDATE rooms SET alloted='1' WHERE room='$room_no' AND block='$block'");
 
 ?>
