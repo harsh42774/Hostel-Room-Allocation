@@ -1,33 +1,33 @@
 # room-allotment
 
 ## Info about the files
--> 2bed.htm, 3bed.htm, 4bed.htm, 6bed.htm : Roommates Selection page based on the type of room chosen
--> approval.htm, approval.php, approval1.php : Not actually implementes in the project but the prototypes of the roommate approval system
--> blockselection.htm, blockselection.php : For selecting the hostel blocks(only boys)
--> check.php : Re-directed after the home page which verifies if you have already registered or not
--> fpdf.php : Not implemented in the project but trial to convert the bill printed on the html page in the end to pdf format(downloadable).
--> frames.html : Converts the ffcs page to frames, one for the title(remains same in the entire site) and the other for dynamic views based     on the step of the selection process you are in.
--> getuser.php : Not implemented in the project, it projects the registration number and the rank of the student whose current registration     is going on(Tried to implement while the project was working according to the ranks)
--> home.html : Defines the frames.html and displays main.html at first
--> login_style.css: External css containing the styles for the login page
--> login.html : The outline of the login page without internal css
--> login.php : Defines the cookies and validates the start and end time of the student and other errors suring logging in
--> main.html : It contains the instructions of the process
--> mess.htm : The outline of the mess selection process with internal css(only for the leader)
--> mess.php : Updates the values of alloted, mess_fees, roommates, room-type, room_fees for the student
--> mess1.htm : Same as mess.htm but for the students who only needs to select the mess i.e. non-leaders
--> mess1.php : Updates the value of mess-type and mess_fees in the database
--> navbar.html : Notimplemented in the final project because of the particular order which needs to be followed during the selection
--> payment.htm : payment page 
--> r2.php : sends the invite to the roommate
--> r3.php, r4.php, r6.php : invite system not implemented yet hence, directly selects the roommate
--> receipt.php : prints the final receipt
--> receipt1.php : Not implemented yet but it is required by fpdf.php
--> room.php : Dynamically displays the room which are available and based on the room type
--> room1.php : Updates the room no. for the roommates and books the room
--> roomselection.htm : Select the type of the room(Not Implemented)
--> roomselection.php : Updates the room values to the database(Not Implemented)
--> roomselection1.htm : Select the type of the room
--> roomselection1.php : Update the room-type to the database
--> sql_connect.php : Required by all the php files which needs to be connected to the database
--> trial.php, trial1.php : As the name suggests
+-> 2bed.htm, 3bed.htm, 4bed.htm, 6bed.htm : Roommates Selection page based on the type of room chosen<br>
+-> approval.htm, approval.php, approval1.php : Not actually implementes in the project but the prototypes of the roommate approval system<br>
+-> blockselection.htm, blockselection.php : For selecting the hostel blocks(only boys)<br>
+-> check.php : Re-directed after the home page which verifies if you have already registered or not<br>
+-> fpdf.php : Not implemented in the project but trial to convert the bill printed on the html page in the end to pdf format(downloadable).<br>
+-> frames.html : Converts the ffcs page to frames, one for the title(remains same in the entire site) and the other for dynamic views based     on the step of the selection process you are in.<br>
+-> getuser.php : Not implemented in the project, it projects the registration number and the rank of the student whose current registration     is going on(Tried to implement while the project was working according to the ranks)<br>
+-> home.html : Defines the frames.html and displays main.html at first<br>
+-> login_style.css: External css containing the styles for the login page<br>
+-> login.html : The outline of the login page without internal css<br>
+-> login.php : Defines the cookies and validates the start and end time of the student and other errors suring logging in<br>
+-> main.html : It contains the instructions of the process<br>
+-> mess.htm : The outline of the mess selection process with internal css(only for the leader)<br>
+-> mess.php : Updates the values of alloted, mess_fees, roommates, room-type, room_fees for the student<br>
+-> mess1.htm : Same as mess.htm but for the students who only needs to select the mess i.e. non-leaders<br>
+-> mess1.php : Updates the value of mess-type and mess_fees in the database<br>
+-> navbar.html : Notimplemented in the final project because of the particular order which needs to be followed during the selection<br>
+-> payment.htm : payment page <br>
+-> r2.php : sends the invite to the roommate<br>
+-> r3.php, r4.php, r6.php : invite system not implemented yet hence, directly selects the roommate<br>
+-> receipt.php : prints the final receipt<br>
+-> receipt1.php : Not implemented yet but it is required by fpdf.php<br>
+-> room.php : Dynamically displays the room which are available and based on the room type<br>
+-> room1.php : Updates the room no. for the roommates and books the room<br>
+-> roomselection.htm : Select the type of the room(Not Implemented)<br>
+-> roomselection.php : Updates the room values to the database(Not Implemented)<br>
+-> roomselection1.htm : Select the type of the room<br>
+-> roomselection1.php : Update the room-type to the database<br>
+-> sql_connect.php : Required by all the php files which needs to be connected to the database<br>
+-> trial.php, trial1.php : As the name suggests<br>
