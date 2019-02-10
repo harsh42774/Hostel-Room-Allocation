@@ -40,7 +40,11 @@ if(isset($_POST['submit']))
 			if($current_time<=$end_time)
 			{
 				setcookie('reg',$reg,time() + (86400),"/");
+
+// Edit here I have redirected to accpet_check _/\_
+
 				header('Location: home.html');
+				//header('Location: accept_check.php');
 				exit();
 			}
 			else
@@ -58,11 +62,11 @@ if(isset($_POST['submit']))
 			window.alert('Your registeration is from $start to $end')
 			window.location.href='login.html'
 			</script>");
-			exit();	
+			exit();
 		}
 	}
 	else
-	{ 
+	{
 		echo ("<script language='JavaScript'>
 			window.alert('Wrong Registration Number or Password. Please re-enter.')
 			window.location.href='login.html'
