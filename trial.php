@@ -2,11 +2,11 @@
 require('sql_connect.php');
 $reg=$_COOKIE['reg'];
 
-$sql=mysqli_query($con,"SELECT * from data WHERE reg='$reg'");
+$sql=mysqli_query($con,"SELECT ito from invite WHERE ifrom='$reg'");
 while($row=mysqli_fetch_array($sql))
 {
-    $block=$row['block'];
+    $r1=$row['ito'];
 }
 
-print $block;
+print $r1;
 ?>

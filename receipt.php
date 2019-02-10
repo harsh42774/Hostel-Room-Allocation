@@ -75,21 +75,6 @@ while($row=mysqli_fetch_array($sql))
 	echo "<table cellspacing='10'><tr><td>Hostel fees(INR):</td><td>".$row['room_fees']."</td></tr><tr><td>Mess fees(INR):</td><td>".$row['mess_fees']."</td></tr></table></center></div></body></html>";
 }
 
-$sql=mysqli_query($con,"SELECT * FROM extras");
-while($row=mysqli_fetch_array($sql))
-{
-	$curr_rank=$row['rank'];
-}
-$sql=mysqli_query($con,"SELECT rank FROM login WHERE reg='$reg'");
-while($row=mysqli_fetch_array($sql))
-{
-	$r=$row['rank'];
-}
-if($curr_rank==$r)
-{
-	$curr_rank++;
-	$sql=mysqli_query($con,"UPDATE extras SET rank='$curr_rank'");
-	$sql=mysqli_query($con,"UPDATE rooms SET alloted='1' WHERE room='$room_no' AND block='$block'");
-}
+$sql=mysqli_query($con,"UPDATE rooms SET alloted='1' WHERE room='$room_no' AND block='$block'");
 
 ?>

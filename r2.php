@@ -40,9 +40,43 @@ else if(abs($rank1-$rank)>200)
 }
 else
 {
+	$result3=mysqli_query($con, "SELECT ito FROM invite WHERE ifrom='$reg'");
+	$a1='FALSE';
+	while($row=mysqli_fetch_array($result3))
+	{
+		$a1=$row['ito'];
+	}
+	if($a1=='FALSE')
+	{
+		$sql=mysqli_query($con, "INSERT INTO invite(ifrom,ito) values('$reg','$r1')");
+		$sql=mysqli_query($con, "UPDATE login SET invite='1' WHERE reg='$r1'");
+		echo("<script>alert('Invite sent. Please refresh the page when the student accepts the invite and complete the other processes.');
+		location.href='2bed.htm';
+		</script>");
+	}
+	else
+	{
+		$result4=mysqli_query($con, "SELECT r1 FROM data WHERE reg='$reg'");
+		while($row=mysqli_fetch_array($result4))
+		{
+			$r1=$row['r1'];
+		}
+		if($r1!=NULL){
+			header("Location: room.php");
+		}
+		else{
+			echo("<script>alert('You have already sent an invite. Please, contact the student.');
+			location.href='2bed.htm';
+			</script>");
+		}
+	}
+}
+/*
+else
+{
 	$sql=mysqli_query($con,"UPDATE data SET r1='$r1' WHERE reg='$reg'");
 }
 
 header("Location: room.php");
-
+*/
 ?>
