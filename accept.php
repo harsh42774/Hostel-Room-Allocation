@@ -84,15 +84,6 @@ require('sql_connect.php');
 $reg = strtoupper($_COOKIE['reg']);
 $sql = mysqli_query($con, "SELECT * FROM invite WHERE ito = '$reg'");
 
-/*
-while($row=mysqli_fetch_array($sql))
-{
-	$to_reg = strtoupper($row['ito']);
-	$from_reg = strtoupper($row['ifrom']);
-	$accept_inv = $row['invite_true'];
-  $accpet_reject = $row['invite_reject'];
-}*/
-
 ?>
 
 </style>
@@ -109,38 +100,60 @@ while($row=mysqli_fetch_array($sql))
 <br>
 
 <?php
-
+$flag1 = 0;
+$flag2 = 0;
 while($row = mysqli_fetch_array($sql))
 {
+	$flag1 = $flag1 + 1;
 	$to_reg = strtoupper($row['ito']);
 	$from_reg = strtoupper($row['ifrom']);
 	$accept_inv = $row['invite_true'];
-  $accpet_reject = $row['invite_reject'];
+  $accept_reject = $row['invite_reject'];
 
-	echo ("<div class = 'centered'>
-	<form id='f1' name='f1' method='post' action='approval1.php'>
-	    <table align='center' class='sample1'>
-	        <col width='200'>
-	        <tr><th colspan='3'>
-	            <font>Do you approve to be the roomate with $from_reg
-	        </th></tr>
-	        <tr>
-	            <td><input type='radio' name='invi_accept' value = 'accept' >Accept</td>
-	        </tr>
-	        <tr>
-	            <td><input type='radio' name='invi_accept' value='reject'>Reject</td>
-	        </tr>
-	        <tr>
-	            <td><input type='hidden' name='reg_from_to' value='$from_reg'></td>
-	        </tr>
-	    </table>
-	    <section class='flat'>
-	        <p align='center'>
-	            <input type='submit' name='submit' value='Submit' class='button'>
-	        </p>
-	    </section>
-	</form>
-	</div>");
+	if ($accept_inv == 1) {
+
+		header("Location: check.php");
+		exit();
+
+	}
+
+	elseif ($accept_inv == 0 && $accept_reject == 0) {
+
+		echo ("<div class = 'centered'>
+		<form id='f1' name='f1' method='post' action='approval1.php'>
+				<table align='center' class='sample1'>
+						<col width='200'>
+						<tr><th colspan='3'>
+								<font>Do you approve to be the roomate with $from_reg
+						</th></tr>
+						<tr>
+								<td><input type='radio' name='invi_accept' value = 'accept' >Accept</td>
+						</tr>
+						<tr>
+								<td><input type='radio' name='invi_accept' value='reject'>Reject</td>
+						</tr>
+						<tr>
+								<td><input type='hidden' name='reg_from_to' value='$from_reg'></td>
+						</tr>
+				</table>
+				<section class='flat'>
+						<p align='center'>
+								<input type='submit' name='submit' value='Submit' class='button'>
+						</p>
+				</section>
+		</form>
+		</div>");
+
+	}
+	elseif ($accept_reject == 1) {
+		$flag2 = $flag2 + 1;
+	}
+
+}
+
+if ($flag1 == $flag2) {
+	header("Location: main.html");
+	exit();
 }
 
 ?>

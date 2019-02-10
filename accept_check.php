@@ -19,27 +19,29 @@ elseif (mysqli_num_rows($sql)>0) {
   	$from_reg = strtoupper($row['ifrom']);
   	$accept_inv = $row['invite_true'];
     $accept_reject = $row['invite_reject'];
+
+
+      if ($accept_inv == '1' || $accept_inv == 1)
+      {
+        // if invite is accepted :
+        header('Location: check.php');
+        exit();
+
+      }
+
   }
 
-  if ($accept_inv == '1' || $accept_inv == 1)
-  {
-    // if invite is accepted :
-    header('Location: check.php');
-    exit();
-
-  }
-
-  elseif ($accept_reject == 1 || $accpet_reject == '1') {
-    header('Location: check.php');
-    exit();
-  }
-
-  elseif ($accept_inv == '0' || $accept_inv == 0) {
+  if ($accept_inv == '0' || $accept_inv == 0) {
     // Redirect to accpet.php
     header('Location: accept.php');
     exit();
 
   }
+  
+  elseif ($accept_reject == 1 || $accpet_reject == '1') {
+    header('Location: check.php');
+    exit();
+  }
 
 }
- ?>
+?>
