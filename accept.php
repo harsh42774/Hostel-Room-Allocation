@@ -6,7 +6,6 @@ body
 {
 	background-image:url("background.jpg");
 }
-
 table.sample1 {
 	border-width: 3px;
 	border-spacing: 5px;
@@ -110,6 +109,8 @@ while($row = mysqli_fetch_array($sql))
 	$accept_inv = $row['invite_true'];
   $accept_reject = $row['invite_reject'];
 
+	// if any of the invite accepted we redirect to check.php
+
 	if ($accept_inv == 1) {
 
 		header("Location: check.php");
@@ -117,6 +118,8 @@ while($row = mysqli_fetch_array($sql))
 
 	}
 
+	// else we dynamically display all request
+// only if the reuest is not accepted or rejected and awaits response from user
 	elseif ($accept_inv == 0 && $accept_reject == 0) {
 
 		echo ("<div class = 'centered'>
@@ -133,6 +136,7 @@ while($row = mysqli_fetch_array($sql))
 								<td><input type='radio' name='invi_accept' value='reject'>Reject</td>
 						</tr>
 						<tr>
+						<!-- giving registration number with which user as accepted to be roomate as hidden filed-->
 								<td><input type='hidden' name='reg_from_to' value='$from_reg'></td>
 						</tr>
 				</table>
@@ -145,12 +149,13 @@ while($row = mysqli_fetch_array($sql))
 		</div>");
 
 	}
+	// if the request has been merked as rejected
 	elseif ($accept_reject == 1) {
 		$flag2 = $flag2 + 1;
 	}
 
 }
-
+// if all requests marked as rejected we redirect to block selection welcome page
 if ($flag1 == $flag2) {
 	header("Location: main.html");
 	exit();
