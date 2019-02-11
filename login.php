@@ -1,5 +1,10 @@
 <?php
 require('sql_connect.php');
+
+if ($_SESSION['user'] != NULL) {
+	header("Location: home.html")
+}
+
 date_default_timezone_set('Asia/Kolkata');
 if(isset($_POST['submit']))
 {

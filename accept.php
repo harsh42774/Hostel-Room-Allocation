@@ -1,3 +1,8 @@
+<?php
+require('sql_connect.php');
+require('login_middleware.php');
+ ?>
+
 <html>
 <head>
 <title>Roomate request accept</title>
@@ -77,9 +82,6 @@ section.flat button {
   right: 0;
 }
 <<?php
-
-require('sql_connect.php');
-
 //$reg = strtoupper($_COOKIE['reg']);
 
 $reg = strtoupper($_SESSION['user']);
