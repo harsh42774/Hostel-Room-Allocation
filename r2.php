@@ -46,13 +46,32 @@ else
 	{
 		$a1=$row['ito'];
 	}
+	$sql1=mysqli_query($con, "SELECT * FROM invite WHERE ito='$r1'");
+	$selected=0;
+	while($row=mysqli_fetch_array($sql1))
+	{
+		if($row['invite_true']==1 or $row['invite_true']=='1')
+		{
+			$selected=1;
+			break;
+		}
+	}
 	if($a1=='FALSE')
 	{
-		$sql=mysqli_query($con, "INSERT INTO invite(ifrom,ito) values('$reg','$r1')");
-		$sql=mysqli_query($con, "UPDATE login SET invite='1' WHERE reg='$r1'");
-		echo("<script>alert('Invite sent. Please refresh the page when the student accepts the invite and complete the other processes.');
-		location.href='2bed.htm';
-		</script>");
+		if($selected==1)
+		{
+			echo("<script>alert('The student has accepted another invite');
+			location.href='2bed.htm';
+			</script>");
+		}
+		else
+		{
+			$sql=mysqli_query($con, "INSERT INTO invite(ifrom,ito) values('$reg','$r1')");
+			$sql=mysqli_query($con, "UPDATE login SET invite='1' WHERE reg='$r1'");
+			echo("<script>alert('Invite sent. Please refresh the page when the student accepts the invite and complete the other processes.');
+			location.href='2bed.htm';
+			</script>");
+		}
 	}
 	else
 	{
