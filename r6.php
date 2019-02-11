@@ -8,6 +8,95 @@ $r3=strtoupper($_POST['s3']);
 $r4=strtoupper($_POST['s4']);
 $r5=strtoupper($_POST['s5']);
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$sql = mysqli_query($con, "SELECT reg FROM login where ikey='$key1'");
+
+// To check if the key is valid or not
+if(mysqli_num_rows($sql)<=0)
+{
+	echo("<script>alert('Please enter valid key');
+	location.href='6bed.htm';
+	</script>");
+	exit();
+}
+
+// To get the reg. no. from the key
+while($row = mysqli_fetch_array($sql))
+{
+	$r1=$row['reg'];
+}
+
+$sql = mysqli_query($con, "SELECT reg FROM login where ikey='$key2'");
+
+// To check if the key is valid or not
+if(mysqli_num_rows($sql)<=0)
+{
+	echo("<script>alert('Please enter valid key');
+	location.href='6bed.htm';
+	</script>");
+	exit();
+}
+
+// To get the reg. no. from the key
+while($row = mysqli_fetch_array($sql))
+{
+	$r2=$row['reg'];
+}
+
+$sql = mysqli_query($con, "SELECT reg FROM login where ikey='$key3'");
+
+// To check if the key is valid or not
+if(mysqli_num_rows($sql)<=0)
+{
+	echo("<script>alert('Please enter valid key');
+	location.href='6bed.htm';
+	</script>");
+	exit();
+}
+
+// To get the reg. no. from the key
+while($row = mysqli_fetch_array($sql))
+{
+	$r3=$row['reg'];
+}
+
+$sql = mysqli_query($con, "SELECT reg FROM login where ikey='$key4'");
+
+// To check if the key is valid or not
+if(mysqli_num_rows($sql)<=0)
+{
+	echo("<script>alert('Please enter valid key');
+	location.href='6bed.htm';
+	</script>");
+	exit();
+}
+
+// To get the reg. no. from the key
+while($row = mysqli_fetch_array($sql))
+{
+	$r4=$row['reg'];
+}
+
+$sql = mysqli_query($con, "SELECT reg FROM login where ikey='$key5'");
+
+// To check if the key is valid or not
+if(mysqli_num_rows($sql)<=0)
+{
+	echo("<script>alert('Please enter valid key');
+	location.href='6bed.htm';
+	</script>");
+	exit();
+}
+
+// To get the reg. no. from the key
+while($row = mysqli_fetch_array($sql))
+{
+	$r5=$row['reg'];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 $result=mysqli_query($con,"SELECT rank FROM login WHERE reg='$reg'");
 $result1=mysqli_query($con,"SELECT rank,alloted FROM login WHERE reg='$r1'");
 $result2=mysqli_query($con,"SELECT rank,alloted FROM login WHERE reg='$r2'");

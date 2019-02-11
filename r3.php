@@ -2,8 +2,47 @@
 require('sql_connect.php');
 
 $reg=strtoupper($_COOKIE['reg']);
-$r1=strtoupper($_POST['s1']);
-$r2=strtoupper($_POST['s2']);
+$key1=strtoupper($_POST['s1']);
+$key2=strtoupper($_POST['s2']);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$sql = mysqli_query($con, "SELECT reg FROM login where ikey='$key1'");
+
+// To check if the key is valid or not
+if(mysqli_num_rows($sql)<=0)
+{
+	echo("<script>alert('Please enter valid key');
+	location.href='3bed.htm';
+	</script>");
+	exit();
+}
+
+// To get the reg. no. from the key
+while($row = mysqli_fetch_array($sql))
+{
+	$r1=$row['reg'];
+}
+
+$sql = mysqli_query($con, "SELECT reg FROM login where ikey='$key2'");
+
+// To check if the key is valid or not
+if(mysqli_num_rows($sql)<=0)
+{
+	echo("<script>alert('Please enter valid key');
+	location.href='3bed.htm';
+	</script>");
+	exit();
+}
+
+// To get the reg. no. from the key
+while($row = mysqli_fetch_array($sql))
+{
+	$r2=$row['reg'];
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 $result=mysqli_query($con,"SELECT rank FROM login WHERE reg='$reg'");
 $result1=mysqli_query($con,"SELECT rank,alloted FROM login WHERE reg='$r1'");

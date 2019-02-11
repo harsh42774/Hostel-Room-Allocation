@@ -2,7 +2,28 @@
 require('sql_connect.php');
 
 $reg=strtoupper($_COOKIE['reg']);
-$r1=strtoupper($_POST['s1']);
+$key1=strtoupper($_POST['s1']);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$sql = mysqli_query($con, "SELECT reg FROM login where ikey='$key1'");
+
+// To check if the key is valid or not
+if(mysqli_num_rows($sql)<=0)
+{
+	echo("<script>alert('Please enter valid key');
+	location.href='2bed.htm';
+	</script>");
+	exit();
+}
+
+// To get the reg. no. from the key
+while($row = mysqli_fetch_array($sql))
+{
+	$r1=$row['reg'];
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 $result=mysqli_query($con,"SELECT rank FROM login WHERE reg='$reg'");
 $result1=mysqli_query($con,"SELECT rank,alloted FROM login WHERE reg='$r1'");
@@ -44,5 +65,4 @@ else
 }
 
 header("Location: room.php");
-
 ?>
