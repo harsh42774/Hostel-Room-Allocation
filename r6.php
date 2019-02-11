@@ -1,7 +1,9 @@
 <?php
 require('sql_connect.php');
 
-$reg=strtoupper($_COOKIE['reg']);
+//$reg=strtoupper($_COOKIE['reg']);
+$reg = strtoupper($_SESSION['user']);
+
 $r1=strtoupper($_POST['s1']);
 $r2=strtoupper($_POST['s2']);
 $r3=strtoupper($_POST['s3']);

@@ -1,7 +1,9 @@
 <?php
 require('sql_connect.php');
 
-$reg = strtoupper($_COOKIE['reg']);
+$reg = strtoupper($_SESSION['user']);
+
+//$reg = strtoupper($_COOKIE['reg']);
 
 
 $sql = mysqli_query($con, " SELECT * FROM invite WHERE ito = '$reg' ");

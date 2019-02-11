@@ -2,7 +2,9 @@
 
 require('sql_connect.php');
 
-$reg=$_COOKIE['reg'];
+//$reg=$_COOKIE['reg'];
+$reg = strtoupper($_SESSION['user']);
+
 $mess=$_POST['mess'];
 
 $sql=mysqli_query($con,"UPDATE data SET mess='$mess' WHERE reg='$reg'");

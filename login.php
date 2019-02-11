@@ -39,12 +39,11 @@ if(isset($_POST['submit']))
 		{
 			if($current_time<=$end_time)
 			{
-				setcookie('reg',$reg,time() + (86400),"/");
-
-// Edit here I have redirected to accpet_check _/\_
+				start_session();
+				//setcookie('reg',$reg,time() + (86400),"/");
+				$_SESSION['user'] = $reg;
 
 				header('Location: home.html');
-				//header('Location: accept_check.php');
 				exit();
 			}
 			else

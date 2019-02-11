@@ -1,6 +1,8 @@
 <?php
 require('sql_connect.php');
-$reg=strtoupper($_COOKIE['reg']);
+
+$reg = strtoupper($_SESSION['user']);
+//$reg=strtoupper($_COOKIE['reg']);
 $sql1=mysqli_query($con,"SELECT * FROM login WHERE reg='$reg'");
 $sql=mysqli_query($con,"SELECT * FROM data WHERE reg='$reg'");
 
@@ -28,7 +30,7 @@ while($row1=mysqli_fetch_array($sql1))
 						location.href='mess1.htm';
 						</script>");
 					exit();
-				}	
+				}
 				else if(!empty($row['r3']))
 				{
 					echo("<script>alert('You have already been registered for room with $r1, $r2, $r3 but your mess selection is pending ');
@@ -59,7 +61,7 @@ while($row1=mysqli_fetch_array($sql1))
 					</script>");
 				exit();
 			}
-		}			
+		}
 	}
 }
 

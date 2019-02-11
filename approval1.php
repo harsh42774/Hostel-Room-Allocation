@@ -1,6 +1,7 @@
 <?php
 require('sql_connect.php');
-$reg = strtoupper($_COOKIE['reg']);
+$reg = strtoupper($_SESSION['user']);
+//$reg = strtoupper($_COOKIE['reg']);
 
 $accept_inv = mysqli_escape_string($con,$_POST['invi_accept']);
 $reg_from = mysqli_escape_string($con,$_POST['reg_from_to']);

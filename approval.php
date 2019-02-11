@@ -4,7 +4,7 @@
     </head>
     <style type="text/css">
     	body
-    	{	
+    	{
     		background-image:url("background.jpg");
     	}
     	table
@@ -12,8 +12,8 @@
     		border:2px solid blue;
     		border-collapse:collapse;
     	}
-      
-    
+
+
         table.sample1 th {
             border-width: 2px;
             padding: 3px;
@@ -21,7 +21,7 @@
             border-color: blue;
             background-color: rgb(204, 204, 255);
         }
-    
+
         table.sample1 td {
             text-align: center;
             border-width: 2px;
@@ -30,8 +30,8 @@
             border-color: blue;
             background-color: rgb(204, 204, 255);
         }
-    
-        input[type=submit] 
+
+        input[type=submit]
         {
 		  border-radius: 5px;
 		  background-color: rgb(200, 200, 255);
@@ -71,7 +71,7 @@
 		  opacity: 1;
 		  right: 0;
 		}
-		
+
     </style>
 
     <body>
@@ -88,10 +88,11 @@
         <form name="f1" method="post" action="approval1.php">
             <table align="center" class="sample1">
                 <col width="200">
-                <tr><th colspan="3"> 
-						<?php 
+                <tr><th colspan="3">
+						<?php
 							require('sql_connect.php');
-							$reg=$_COOKIE['reg'];
+              $reg = strtoupper($_SESSION['user']);
+              //$reg=$_COOKIE['reg'];
 							$sql=mysqli_query($con, "SELECT r1 FROM data WHERE reg='$reg'");
 							while($row=mysqli_fetch_array($sql))
 							{

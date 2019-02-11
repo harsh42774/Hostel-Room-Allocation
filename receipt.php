@@ -1,7 +1,9 @@
 <?php
 require('sql_connect.php');
 
-$reg=$_COOKIE['reg'];
+//$reg=$_COOKIE['reg'];
+$reg = strtoupper($_SESSION['user']);
+
 $sql=mysqli_query($con,"SELECT * from data WHERE reg='$reg'");
 
 echo "<html><head><script type='text/javascript'>
@@ -14,7 +16,7 @@ echo "<html><head><script type='text/javascript'>
         border-style: inset;
         border-color: blue;
         border-radius: 5px;
-		margin:auto; width:300px; height: 150px; background-color: rgb(204,204,255);} 
+		margin:auto; width:300px; height: 150px; background-color: rgb(204,204,255);}
 		body{background-image:url('background.jpg');}
 		input[type=submit] {
 		border-radius: 5px;
@@ -62,7 +64,7 @@ echo "<html><head><script type='text/javascript'>
 	function noBack() { window.history.forward(); }
 	</script>
 	</head>
-	<body onload='noBack();' 
+	<body onload='noBack();'
 	onpageshow='if (event.persisted) noBack();' onunload='s'>
 	<br><br><br><br>
 	<div class='container'>

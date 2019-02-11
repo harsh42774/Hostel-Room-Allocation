@@ -1,7 +1,9 @@
 <?php
 require('sql_connect.php');
 
-$reg=$_COOKIE['reg'];
+$reg = strtoupper($_SESSION['user']);
+
+//$reg=$_COOKIE['reg'];
 $block=$_POST['block'];
 
 if($block=='a')

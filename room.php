@@ -1,7 +1,9 @@
 <?php
 require('sql_connect.php');
 
-$reg=$_COOKIE['reg'];
+//$reg=$_COOKIE['reg'];
+$reg = strtoupper($_SESSION['user']);
+
 $sql=mysqli_query($con,"SELECT * FROM data WHERE reg='$reg'");
 
 while($row=mysqli_fetch_array($sql))
@@ -59,7 +61,7 @@ echo "<html>
         opacity: 1;
         right: 0;
         }
-        
+
         input[type=select]{
             border-radius: 10px;
         }

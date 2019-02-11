@@ -2,9 +2,12 @@
 
 require('sql_connect.php');
 
-$reg=strtoupper($_COOKIE['reg']);
+$reg = strtoupper($_SESSION['user']);
+
+//$reg=strtoupper($_COOKIE['reg']);
 $mess=$_POST['mess'];
-$room=$_COOKIE['room'];
+$room = $_SESSION['room'];
+//$room=$_COOKIE['room'];
 
 $sql=mysqli_query($con,"UPDATE data SET mess='$mess' WHERE reg='$reg'");
 $sql=mysqli_query($con,"UPDATE login SET alloted='1' WHERE reg='$reg'");

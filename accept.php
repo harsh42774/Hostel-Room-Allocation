@@ -80,7 +80,10 @@ section.flat button {
 
 require('sql_connect.php');
 
-$reg = strtoupper($_COOKIE['reg']);
+//$reg = strtoupper($_COOKIE['reg']);
+
+$reg = strtoupper($_SESSION['user']);
+
 $sql = mysqli_query($con, "SELECT * FROM invite WHERE ito = '$reg'");
 
 ?>

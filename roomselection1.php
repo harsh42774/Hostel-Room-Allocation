@@ -1,7 +1,9 @@
 <?php
 require('sql_connect.php');
 
-$reg=$_COOKIE['reg'];
+//$reg=$_COOKIE['reg'];
+$reg = strtoupper($_SESSION['user']);
+
 $type=$_POST['type'];
 
 if($type=='2ac')

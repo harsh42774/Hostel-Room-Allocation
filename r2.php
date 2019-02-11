@@ -1,7 +1,10 @@
 <?php
 require('sql_connect.php');
 
-$reg=strtoupper($_COOKIE['reg']);
+//$reg=strtoupper($_COOKIE['reg']);
+
+$reg = strtoupper($_SESSION['user']);
+
 $r1=strtoupper($_POST['s1']);
 
 $result=mysqli_query($con,"SELECT rank FROM login WHERE reg='$reg'");
