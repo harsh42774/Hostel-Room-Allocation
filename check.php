@@ -6,11 +6,40 @@ $sql=mysqli_query($con,"SELECT * FROM data WHERE reg='$reg'");// for getting roo
 
 while($row1=mysqli_fetch_array($sql1))
 {
+
 	if($row1['alloted']==0)// not alloted
 	{
+
+		$sql3 = mysqli_query($con, "SELECT * FROM invite WHERE ifrom = '$reg'");
+		if (mysqli_num_rows($sql3)>0) {
+			while ($row3 = mysqli_fetch_array($sql3)) {
+
+				if ($row3['invite_true'] == 0 || $row3['invite_true'] == 0) {// even if one requst is pending stall leader
+					echo "lkfdjdsklfjksldagj";
+					/*echo("<script>
+								alert('Please wait for your possible future
+											 roomates to accept your invite');
+						location.href='main.html';
+						</script>");*/
+
+					header("Location: leader_stall.php");
+					exit();
+				}
+
+				// if one rejected logic below-----
+				/*elseif ($row3['invite_reject'] == 1 || $row3['invite_reject'] == '1') {
+					// code...
+				}*/
+
+			}
+		}
+
+		// if all invites are accepted then only this part of code will be accessed
+		// even if one invite is not accepted then it will stall
 		header('Location: blockselection.htm');
 		exit();
 	}
+
 	else// if alloted
 	{
 		while($row=mysqli_fetch_array($sql))
@@ -67,10 +96,12 @@ while($row1=mysqli_fetch_array($sql1))
 // what to add
 /*
 
-1. add to wait if all roomatates have not accepted(for leader who is sending requests)
-2. if stalling some one create a stall page
-3. logout then login(request accept person), stall at main page, please wasot for leader to get a roomate
-4. when all has accepted redrect leader to room selection (oomselection.htm)
+X \/ == task completed
+
+1. add to wait if all roomatates have not accepted(for leader who is sending requests) X \/
+2. if stalling leader create a stall page X\/
+3. logout then login(request accept person), stall at main page, please wait for leader to get a roomate
+4. when all has accepted redrect leader to room selection (roomselection.htm)
 
 */
 
