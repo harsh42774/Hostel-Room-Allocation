@@ -17,7 +17,6 @@ while($row1=mysqli_fetch_array($sql1))
 			while ($row3 = mysqli_fetch_array($sql3)) {
 
 				if ($row3['invite_true'] == 0 || $row3['invite_true'] == 0) {// even if one requst is pending stall leader
-					echo "lkfdjdsklfjksldagj";
 					/*echo("<script>
 								alert('Please wait for your possible future
 											 roomates to accept your invite');
@@ -39,6 +38,7 @@ while($row1=mysqli_fetch_array($sql1))
 			header('Location: blockselection.htm');
 			exit();
 		}
+
 		// case 2 user is invite accepting person and has accepted someone's invite
 		elseif (mysqli_num_rows($sql3) == 0) {
 			// we are getting to whom a person has sent invites if he has sent it to our dear user
@@ -51,28 +51,49 @@ while($row1=mysqli_fetch_array($sql1))
 				}
 
 				$sql5 = mysqli_query($con, "SELECT * FROM invite WHERE ifrom = '$reg_from'");
-				while ($row5 = mysqli_fetch_array($sql5)){
-						$flag_integrity = 1;// flag to check if invite_true only has 0 or 1
-						if ($row5['invite_true'] == 0 || $row5['invite_true'] == '0') {
-							setcookie('reg_from_invi',$reg_from,time() + (86400),"/");
-							// get the user who has sent the user request
-							// redirect accepting person
-							// who has accepted invite
-							// even if one request is not accepted by leader
-							header("Location: accept_awaits_stall.php");
-							exit();
-						}
-						elseif ($row5['invite_true'] == 1 || $row5['invite_true'] == '1') {
-							$flag_integrity = 1;
-						}
-						else {
-							$flag_integrity = 0;
-						}
-						// logic to let accepting user proceed to mess selection if a room is selected else stall!!!
-						//if ($flag_integrity == 1) {
-							// code...
-						//}
+				// get the rows where $reg_from(person sending invites) has sent a request
+				// if above condition is true else I can think only of error!!
+				if (mysqli_num_rows($sql5)>0) {
+					while ($row5 = mysqli_fetch_array($sql5)){
+							$flag_integrity = 1;// flag to check if invite_true only has 0 or 1
+							if ($row5['invite_true'] == 0 || $row5['invite_true'] == '0') {
+								setcookie('reg_from_invi',$reg_from,time() + (86400),"/");
+								// get the user who has sent the user request
+								// redirect accepting person
+								// who has accepted invite
+								// even if one request is not accepted by leader
+								header("Location: accept_awaits_stall.php");
+								exit();
+							}
+							elseif ($row5['invite_true'] == 1 || $row5['invite_true'] == '1') {
+								$flag_integrity = 1;
+							}
+							else {
+								$flag_integrity = 0;
+							}
+							// logic to let accepting user proceed to mess selection if a room is selected else stall!!!
+							if ($flag_integrity == 1) {// if invite_true hasn't got any values other than 0 or 1 else error
+								// logic to stall here
+								$sql6 = mysqli_query($con, "SELECT * FROM login WHERE reg = '$reg_from'");
+								// if this person is in login else there is huge error
+								if (mysqli_num_rows($sql6)>0) {
+									while ($row6 = mysqli_fetch_array($sql6)) {
+										$alloted_reg_from = $row6['alloted'];
+										if ($alloted_reg_from == 0 || $alloted_reg_from == "0") {
+											setcookie('reg_from_invi_await_room',$reg_from,time() + (86400),"/");
+											header("Location: room_selection_stall.php");
+											exit();
+										}
+										// below logic is thrash, but removing may cause me to test code again and i dont have that much time
+										elseif ($alloted_reg_from == 1 || $alloted_reg_from == "1") {
+											header("Location: mess1.htm");
+										}
+									}
+								}
+							}
+					}
 				}
+
 			}
 
 			// if user hasnt got any invites and wants to be leader
@@ -150,8 +171,11 @@ X \/ == task completed
 
 1. add to wait if all roomatates have not accepted(for leader who is sending requests) X \/
 2. if stalling leader create a stall page X\/
-3. logout then login(request accept person), stall at main page, please wait for leader to get a roomate
-4. when all has accepted redrect leader to room selection (roomselection.htm)
+3. logout then login(request accept person), stall at main page, please wait for leader to get a roomate X\/
+4. when all has accepted redirect leader to room selection (roomselection.htm) X\/
+5. stall accepting person when all invites are accepted by all the persons whom request sending person(leader)
+   has sent request to and hasnt selected a roomate
+	 else proceed to mess selection
 
 */
 
