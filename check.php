@@ -174,8 +174,8 @@ X \/ == task completed
 3. logout then login(request accept person), stall at main page, please wait for leader to get a roomate X\/
 4. when all has accepted redirect leader to room selection (roomselection.htm) X\/
 5. stall accepting person when all invites are accepted by all the persons whom request sending person(leader)
-   has sent request to and hasnt selected a roomate
-	 else proceed to mess selection
+   has sent request to and leader hasnt selected a room
+	 else proceed to mess selectionX\/
 
 */
 
