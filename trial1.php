@@ -1,5 +1,6 @@
 <?php
     require('sql_connect.php');
+    require('login_middleware.php');
     date_default_timezone_set("Asia/Kolkata");
     $reg='16BCE1001';
     $sql=mysqli_query($con,"SELECT * FROM login WHERE reg='$reg'");

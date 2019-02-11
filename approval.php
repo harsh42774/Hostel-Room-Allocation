@@ -91,6 +91,7 @@
                 <tr><th colspan="3">
 						<?php
 							require('sql_connect.php');
+              require('login_middleware.php');
               $reg = strtoupper($_SESSION['user']);
               //$reg=$_COOKIE['reg'];
 							$sql=mysqli_query($con, "SELECT r1 FROM data WHERE reg='$reg'");

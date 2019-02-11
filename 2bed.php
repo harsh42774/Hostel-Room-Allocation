@@ -1,7 +1,10 @@
 <?php
 require('sql_connect.php');
+require('login_middleware.php');
 
-$reg=strtoupper($_COOKIE['reg']);
+$reg = strtoupper($_SESSION['user']);
+
+//$reg=strtoupper($_COOKIE['reg']);
 
 echo('<html>
 <head>
@@ -13,7 +16,7 @@ echo('<html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
 <style>
 body
-{ 
+{
 	background-image:url("background.jpg");
 }
 
@@ -21,7 +24,7 @@ table.sample1 {
 	border-width: 3px;
 	border-spacing: 5px;
 	border-style: inset;
-	border-color: blue; 
+	border-color: blue;
   border-radius: 5px;
 	background-color: rgb(204, 204, 255);
 }
@@ -93,7 +96,7 @@ section.flat button {
 	function noBack() { window.history.forward(); }
 </SCRIPT>
 </head>
-<body onload="noBack();" 
+<body onload="noBack();"
   onpageshow="if (event.persisted) noBack();" onunload="">
 <br>
 <br>

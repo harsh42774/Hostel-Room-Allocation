@@ -20,6 +20,7 @@ th {text-align: left;}
 
 <?php
 require('sql_connect.php');
+require('login_middleware.php');
 $q = intval($_GET['q']);
 
 $sql="SELECT * FROM login WHERE reg = '".$q."'";
@@ -41,4 +42,4 @@ echo "</table>";
 mysqli_close($con);
 ?>
 </body>
-</html> 
+</html>

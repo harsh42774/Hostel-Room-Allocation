@@ -1,5 +1,6 @@
 <?php
 require('sql_connect.php');
+require('login_middleware.php');
 
 //$reg=$_COOKIE['reg'];
 $reg = strtoupper($_SESSION['user']);
