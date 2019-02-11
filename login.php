@@ -39,7 +39,7 @@ if(isset($_POST['submit']))
 		{
 			if($current_time<=$end_time)
 			{
-				start_session();
+				session_start();
 				//setcookie('reg',$reg,time() + (86400),"/");
 				$_SESSION['user'] = $reg;
 
