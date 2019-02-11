@@ -12,8 +12,11 @@ while($row1=mysqli_fetch_array($sql1))
 
 		$sql3 = mysqli_query($con, "SELECT * FROM invite WHERE ifrom = '$reg'");
 		// case 1 user is leader
-		// if he is leader then this query would definitely return more than 1 row.
+		// if he is leader then this query would definitely return more than or equal to 1 row.
 		if (mysqli_num_rows($sql3)>0) {
+			// i here is to check how many roomates has accepted invite
+			$i = 0;
+			$roomies = array();
 			while ($row3 = mysqli_fetch_array($sql3)) {
 
 				if ($row3['invite_true'] == 0 || $row3['invite_true'] == 0) {// even if one requst is pending stall leader
@@ -26,6 +29,11 @@ while($row1=mysqli_fetch_array($sql1))
 					header("Location: leader_stall.php");
 					exit();
 				}
+				elseif ($row3['invite_true'] == 1 || $row3['invite_true'] == 1)
+				{
+					$roomies[$i] = $row3['ito'];
+					$i = $i + 1;
+				}
 
 				// if one rejected logic below-----
 				/*elseif ($row3['invite_reject'] == 1 || $row3['invite_reject'] == '1') {
@@ -35,8 +43,35 @@ while($row1=mysqli_fetch_array($sql1))
 			}
 			// if all invites are accepted then only this part of code will be accessed
 			// even if one invite is not accepted then it will stall
-			header('Location: blockselection.htm');
-			exit();
+
+			//if no one has accepted invited (well if i is 0 there is huge error!1)
+			if ($i == 0) {
+				header('Location: leader_stall.php');
+				exit();
+			}
+			// else if someone has accepted inite and no one is remaing to accept invite
+			if ($i == 1) {
+				$sql7 = mysqli_query($con, "UPDATE data SET r1 = '$roomies[0]' WHERE reg = '$reg'");
+				header("Location: roomselection1.htm");
+				exit();
+			}
+			if ($i == 2) {
+				$sql7 = mysqli_query($con, "UPDATE data SET r1 = '$roomies[0]', r2 = '$roomies[1]' WHERE reg = '$reg'");
+				header("Location: roomselection1.htm");
+				exit();
+			}
+			if ($i == 3) {
+				$sql7 = mysqli_query($con, "UPDATE data SET r1 = '$roomies[0]', r2 = '$roomies[1]', r3 = '$roomies[2]'  WHERE reg = '$reg'");
+				header("Location: roomselection1.htm");
+				exit();
+			}
+			if ($i == 5) {
+				$sql7 = mysqli_query($con, "UPDATE data SET r1 = '$roomies[0]', r2 = '$roomies[1]', r3 = '$roomies[2]', r4 = '$roomies[3]',
+					r5 = '$roomies[5]' WHERE reg = '$reg'");
+				header("Location: roomselection1.htm");
+				exit();
+			}
+
 		}
 
 		// case 2 user is invite accepting person and has accepted someone's invite
@@ -175,7 +210,9 @@ X \/ == task completed
 4. when all has accepted redirect leader to room selection (roomselection.htm) X\/
 5. stall accepting person when all invites are accepted by all the persons whom request sending person(leader)
    has sent request to and leader hasnt selected a room
-	 else proceed to mess selectionX\/
+	 else proceed to mess selection X\/
+6. add redirection to room selection and update data table(fill the roomates) for leader
+	 if leader's invitation is accepted by all X\/
 
 */
 
