@@ -52,23 +52,23 @@ while($row1=mysqli_fetch_array($sql1))
 			// else if someone has accepted inite and no one is remaing to accept invite
 			if ($i == 1) {
 				$sql7 = mysqli_query($con, "UPDATE data SET r1 = '$roomies[0]' WHERE reg = '$reg'");
-				header("Location: roomselection1.htm");
+				header("Location: room.php");
 				exit();
 			}
 			if ($i == 2) {
 				$sql7 = mysqli_query($con, "UPDATE data SET r1 = '$roomies[0]', r2 = '$roomies[1]' WHERE reg = '$reg'");
-				header("Location: roomselection1.htm");
+				header("Location: room.php");
 				exit();
 			}
 			if ($i == 3) {
 				$sql7 = mysqli_query($con, "UPDATE data SET r1 = '$roomies[0]', r2 = '$roomies[1]', r3 = '$roomies[2]'  WHERE reg = '$reg'");
-				header("Location: roomselection1.htm");
+				header("Location: room.php");
 				exit();
 			}
 			if ($i == 5) {
 				$sql7 = mysqli_query($con, "UPDATE data SET r1 = '$roomies[0]', r2 = '$roomies[1]', r3 = '$roomies[2]', r4 = '$roomies[3]',
 					r5 = '$roomies[5]' WHERE reg = '$reg'");
-				header("Location: roomselection1.htm");
+				header("Location: room.php");
 				exit();
 			}
 

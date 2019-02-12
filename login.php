@@ -21,7 +21,7 @@ if(isset($_POST['submit']))
 			</script>");
 		exit();
 	}
-	$sql=mysqli_query($con,"SELECT * FROM login WHERE reg='$reg'");
+	$sql=mysqli_query($con,"SELECT * FROM login WHERE reg='$reg' AND pass = '$pass'");
 	while($row=mysqli_fetch_array($sql))
 	{
 		$start_time = $row['start'];
