@@ -1,101 +1,101 @@
 <html>
-<head>
-<title>Roommates Selection</title>
-<style> 
-table.sample1 {
-	border-width: 3px;
-	border-spacing: 5px;
-	border-style: inset;
-	border-color: blue;
-	border-radius: 5px;
-	background-color: rgb(204, 204, 255);
-}
-table.sample1 th {
-	border-width: 0px;
-	padding: 3px;
-	border-style: none;
-	border-color: blue;
-	background-color: rgb(204, 204, 255);
-}
-table.sample1 td {
-	border-width: 0px;
-	padding: 3px;
-	border-style: none;
-	border-color: blue;
-	background-color: rgb(204, 204, 255);
-}
-.button {
-  border-radius: 5px;
-  background-color: rgb(200, 200, 255);
-  border-color: blue;
-  color: black;
-  text-align: center;
-  font-size: 15px;
-  padding: 10px;
-  width: 120px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  font:Times New Roman;
-}
+	<head>
+	<title>Roommates Selection</title>
+		<style> 
+		table.sample1 {
+			border-width: 3px;
+			border-spacing: 5px;
+			border-style: inset;
+			border-color: blue;
+			border-radius: 5px;
+			background-color: rgb(204, 204, 255);
+		}
+		table.sample1 th {
+			border-width: 0px;
+			padding: 3px;
+			border-style: none;
+			border-color: blue;
+			background-color: rgb(204, 204, 255);
+		}
+		table.sample1 td {
+			border-width: 0px;
+			padding: 3px;
+			border-style: none;
+			border-color: blue;
+			background-color: rgb(204, 204, 255);
+		}
+		.button {
+			border-radius: 5px;
+			background-color: rgb(200, 200, 255);
+			border-color: blue;
+			color: black;
+			text-align: center;
+			font-size: 15px;
+			padding: 10px;
+			width: 120px;
+			transition: all 0.5s;
+			cursor: pointer;
+			margin: 5px;
+			font:Times New Roman;
+		}
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
+		.button span {
+			cursor: pointer;
+			display: inline-block;
+			position: relative;
+			transition: 0.5s;
+		}
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
+		.button span:after {
+			content: '\00bb';
+			position: absolute;
+			opacity: 0;
+			top: 0;
+			right: -20px;
+			transition: 0.5s;
+		}
 
-.button:hover span {
-  padding-right: 25px;
-}
+		.button:hover span {
+			padding-right: 25px;
+		}
 
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
+		.button:hover span:after {
+			opacity: 1;
+			right: 0;
+		}
 
-body
-{
-	background-image:url("background.jpg");
-}
-</style>
-</head>
-<body>
-<br>
-<br>
-<br>
-<br>
-<form id="f1" action="r4.php" method="post">
-<table align="center" class="sample1">
-<col width="300">
-<tr><td></td></tr>
-<tr><th><font size="4">Enter registration number of the roommate : </font></th></tr>
-<tr><td></td></tr>
-<tr><td></td></tr>
-<tr align="center"><td>
-<input style="border-radius:5px;" type="password" name="s1" required>
-</td></tr>
-<tr align="center"><td>
-<input style="border-radius:5px;" type="password" name="s2" required>
-</td></tr>
-<tr align="center"><td>
-<input style="border-radius:5px;" type="password" name="s3" required>
-</td></tr>
-<tr><td></td></tr>
-<tr><td></td></tr>
-<tr><td></td></tr>
-</table>
-<p align="center"><button class="button"><span>SUBMIT </span></button>
-
-</body>
+		body
+		{
+			background-image:url("background.jpg");
+		}
+		</style>
+	</head>
+	<body>
+		<br>
+		<br>
+		<br>
+		<br>
+		<form id="f1" action="r4.php" method="post">
+			<table align="center" class="sample1">
+				<col width="300">
+				<tr><td></td></tr>
+				<tr><th><font size="4">Enter the key provided to your roommate :</font></th></tr>
+				<tr><td></td></tr>
+				<tr><td></td></tr>
+				<tr align="center"><td>
+				<input style="border-radius:5px;" type="password" name="s1" required>
+				</td></tr>
+				<tr align="center"><td>
+				<input style="border-radius:5px;" type="password" name="s2" required>
+				</td></tr>
+				<tr align="center"><td>
+				<input style="border-radius:5px;" type="password" name="s3" required>
+				</td></tr>
+				<tr><td></td></tr>
+				<tr><td></td></tr>
+				<tr><td></td></tr>
+			</table>
+			<p align="center"><button class="button"><span>SUBMIT </span></button></p>
+		</form>
+	</body>
 </html>

@@ -1,14 +1,26 @@
 <?php
-require('sql_connect.php');
+require('sql_connect.php');     // Required to connect to the SQL database
 
-$reg=$_COOKIE['reg'];
-$sql=mysqli_query($con,"SELECT * FROM data WHERE reg='$reg'");
+$reg=$_COOKIE['reg'];   // To get the Reg. No. of the logged in student
+// $sql=mysqli_query($con,"SELECT room,type FROM data WHERE reg='$reg'");  // Get the room type from the database
+if($stmt = $con->prepare("SELECT room,type FROM data WHERE reg=?"))
+{
+	$stmt->bind_param("s",$reg);
+	$stmt->execute();
+	$stmt->bind_result($froom, $ftype);
+	while($stmt->fetch())
+	{
+		$bed=$froom;
+		$type=$ftype;
+	}
+	$stmt->close();
+}
 
-while($row=mysqli_fetch_array($sql))
+/* while($row=mysqli_fetch_array($sql))
 {
     $bed=$row['room'];
     $type=$row['type'];
-}
+} */
 
 echo "<html>
     <head>
@@ -75,19 +87,41 @@ echo "<html>
                 <h3>Select Room Number</h3>
                 <select name='room_no'>";
 
-$sql=mysqli_query($con,"SELECT * from data WHERE reg='$reg'");
+/* $sql=mysqli_query($con,"SELECT block from data WHERE reg='$reg'");  // Get the block selected from the database
 while($row=mysqli_fetch_array($sql))
 {
     $block=$row['block'];
+} */
+if($stmt = $con->prepare("SELECT block FROM data WHERE reg=?"))
+{
+	$stmt->bind_param("s",$reg);
+	$stmt->execute();
+	$stmt->bind_result($fblock);
+	while($stmt->fetch())
+	{
+		$block = $fblock;
+	}
+	$stmt->close();
 }
 
-$sql=mysqli_query($con,"SELECT * FROM rooms WHERE alloted='0' AND bed='$bed' AND type='$type' AND block='$block'");
+/* $sql=mysqli_query($con,"SELECT room FROM rooms WHERE alloted='0' AND bed='$bed' AND type='$type' AND block='$block'"); // Get the desired room which are not alloted from the database and display them
 while($row=mysqli_fetch_array($sql))
 {
     $room_no=$row['room'];
-    echo "<option value='$room_no'>$room_no</option>";
+} */
+$alloted=0;
+if($stmt = $con->prepare("SELECT room FROM rooms WHERE alloted=? AND bed=? AND type=? AND block=?"))
+{
+	$stmt->bind_param("isss",$alloted, $bed, $type, $block);
+	$stmt->execute();
+	$stmt->bind_result($froom);
+	while($stmt->fetch())
+	{
+        $room_no = strtoupper($froom);
+        echo "<option value='$room_no'>$room_no</option>";
+	}
+	$stmt->close();
 }
-
 echo "</select>
     </center></div><br><center><input type='submit' name='submit' value='Submit'></center></form></body></html>";
 
