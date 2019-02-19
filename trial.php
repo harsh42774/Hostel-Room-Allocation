@@ -1,12 +1,24 @@
 <?php
+
 require('sql_connect.php');
-$reg=$_COOKIE['reg'];
-
-$sql=mysqli_query($con,"SELECT * from data WHERE reg='$reg'");
-while($row=mysqli_fetch_array($sql))
+$reg="16BCE1008";
+$pass="student8";
+$flag=0;
+$start_time=NULL;
+if($stmt = $con->prepare("SELECT start,end FROM login WHERE reg=? and pass=?"))
 {
-    $block=$row['block'];
+    $stmt->bind_param("ss",$reg,$pass);
+    $stmt->execute();
+    $stmt->bind_result($fstart,$fend);
+    while($stmt->fetch())
+    {
+        $start_time = $fstart;
+        $flag=1;
+        $end_time = $fend;
+    }
+    $stmt->close();
 }
+    
+echo($flag);
 
-print $block;
 ?>
