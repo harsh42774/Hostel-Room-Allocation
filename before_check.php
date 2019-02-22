@@ -4,6 +4,10 @@ require("sql_connect.php");
 $reg=strtoupper($_COOKIE['reg']);
 
 $sql1=mysqli_query($con,"SELECT alloted FROM login WHERE reg='$reg'");
+while($row=mysqli_fetch_array($sql1))
+{
+  $alloted=$row['alloted'];
+}
 
 if ($alloted == 1) {
   header("Location: check.php");

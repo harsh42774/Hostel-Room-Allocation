@@ -117,6 +117,13 @@ else if($type=='6nonac')
     }
     header("Location: 6bed.htm");
 }
+else
+{
+    echo("<script language='JavaScript'>
+    window.alert('Please select Room Type')
+    window.location.href='roomselection1.htm'
+    </script>");
+}
 
 
 ?>

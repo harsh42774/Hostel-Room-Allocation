@@ -48,7 +48,7 @@ if($stmt=$con->prepare("SELECT alloted FROM login WHERE reg=?"))
 						location.href='mess1.htm';
 						</script>");
 					exit();
-				}	
+				}
 				else if(!($r3==NULL or $r3==''))
 				{
 					echo("<script>alert('You have already been registered for room with $r1, $r2, $r3 but your mess selection is pending ');
@@ -79,7 +79,7 @@ if($stmt=$con->prepare("SELECT alloted FROM login WHERE reg=?"))
 					</script>");
 				exit();
 			}
-		}			
+		}
 	}
 }
 ?>

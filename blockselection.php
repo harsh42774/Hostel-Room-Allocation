@@ -25,4 +25,11 @@ else if($block=='c')
         header("Location: roomselection1.htm");     // Redirect to room type selection page
     }
 }
+else
+{
+    echo("<script language='JavaScript'>
+    window.alert('Please select hostel block')
+    window.location.href='blockselection.htm'
+    </script>");
+}
 ?>
