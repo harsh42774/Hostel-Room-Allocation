@@ -71,7 +71,7 @@ echo "<html>
         opacity: 1;
         right: 0;
         }
-        
+
         input[type=select]{
             border-radius: 10px;
         }
